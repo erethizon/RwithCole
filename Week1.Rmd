@@ -1,0 +1,11 @@
+---
+title: "Week1 - GSWR examples"
+author: "Erika"
+date: "5/18/2020"
+output: html_document
+---
+
+This week, we're working on GSWR Chapter 2 on importing data and examining it with the dplyr package.
+
+
+
