@@ -1,0 +1,50 @@
+---
+title: "Getting Started with R chapter 3 - Camera trap data examples"
+output: html_notebook
+---
+
+Prep your R workspace by writing code that will 1) clear R's brain, 2) turn on dplyr and 3) turn on ggplot:
+
+```{r}
+
+```
+Load the data set called "masterDF_test.csv" and call the data frame "DF"
+
+```{r}
+
+```
+Review from chapter 2: Examine the dataset using the `str` function 
+```{r}
+
+```
+Let's add a new variable to our data set, Class, which identifies the Class to which each species belongs. It will be a categorical variable, with 2 levels: Mammalia for all the mammals and Aves for the birds.  
+
+
+1. Use `which` to determine the rows in DF that contain birds. *Note*: If  you are trying to select from a vector of categorical values (e.g. a list of all the birds) you cannot use `==` but must instead use `%in%` to make the selection.
+```{r}
+
+```
+Now assign those rows to the Class Aves, creating a new column in the dataframe along the way.
+```{r}
+
+```
+Now use `filter` and `group_by` to summarize the number of birds and mammals observed, respectively, by round.
+
+```{r}
+
+```
+
+Now create a new data frame that contains only the members of the weasel family (mustelidae) from round 4 of the study
+
+```{r}
+
+```
+
+Now create a new data frame that contains only the turkeys from round 4 as well as the deer from rounds 2 or 3
+```{r}
+
+```
+
+
+
+

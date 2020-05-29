@@ -1,0 +1,67 @@
+---
+title: "Getting Started with R chapter 3 - Camera trap data examples"
+output: html_notebook
+---
+
+Prep your R workspace by writing code that will 1) clear R's brain, 2) turn on dplyr and 3) turn on ggplot:
+
+```{r}
+rm(list = ls())
+library(dplyr)
+library(ggplot2)
+```
+Load the data set called "masterDF_test.csv" and call the data frame "DF"
+
+```{r}
+DF<-read.csv("/Users/ebar/Dropbox/1Courses/ResearchGroup/Shared/Cole/SLU Fellowship/Data/masterDF_test.csv")
+```
+Review from chapter 2: Examine the dataset using the `str` function 
+```{r}
+str(DF)
+```
+Let's add a new variable to our data set, Class, which identifies the Class to which each species belongs. It will be a categorical variable, with 2 levels: Mammalia for all the mammals and Aves for the birds.  
+
+
+1. Use `which` to determine the rows in DF that contain birds.
+```{r}
+birds<-c("GROUSERUFFED", "CROWORRAVEN", "OTHERBIRD", "OWL", "BLUEJAY", "TURKEY", "GOOSEWILD")
+
+birdrows<- which(DF$bin %in% birds)
+
+```
+Now assign those rows to the Class Aves, creating a new column in the dataframe along the way.
+```{r}
+DF$Class<- "Mammalia" #creates new column and fills it with mammalia by default
+DF$Class[birdrows]<- "Aves"
+```
+Now use `filter` and `group_by` to summarize the number of birds and mammals observed, respectively, by round.
+
+```{r}
+DF %>% filter(Class == "Mammalia") %>% group_by(round) %>% summarize(
+  num_mammals = length(bin)
+) 
+
+DF %>% filter(Class == "Aves") %>% group_by(round) %>% summarize(
+  num_birds = length(bin))
+
+```
+
+Now create a new data frame that contains only the members of the weasel family (mustelidae) from round 4 of the study
+
+```{r}
+mustelids<-c("FISHER", "WEASEL", "RIVEROTTER", "MINK")
+weasels<-DF %>% filter(bin %in% mustelids & round == 4)
+```
+
+Now create a new data frame that contains only the turkeys from round 4 as well as the deer from rounds 2 or 3
+```{r}
+turkeydeer<-DF %>% filter(
+  (bin %in% "TURKEY" & round == 4) |  
+  (bin %in% "DEERWHITETAILED" & round == 2) | 
+  (bin %in% "DEERWHITETAILED" & round == 3)
+)
+```
+
+
+
+

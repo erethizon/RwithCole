@@ -1,0 +1,56 @@
+---
+title: "Getting Started with R chapter 3 - Camera trap data examples"
+output: html_notebook
+---
+
+Prep your R workspace by writing code that will 1) clear R's brain, 2) turn on dplyr and 3) turn on ggplot:
+
+```{r}
+
+```
+Load the data set called "masterDF_test.csv" and call the data frame "DF"
+
+```{r}
+
+```
+Review from chapter 2: Examine the dataset using the `glimpse` and `head` functions 
+```{r}
+
+```
+Exploratory data analysis
+
+Use the `summary` function on the whole data frame to get summary statistics for each variable.
+
+```{r}
+
+```
+What did you see regarding what *should* be numeric variables?  What is the problem?
+
+
+
+There are 3 date variables in this data frame. Use the `lubridate` package that was introduced in the appendix of chapter 2 to convert td.photo, Start.Date, End.Date and Photo.Date to date formats and Photo.Time to a time format, retaining all of the detail as you go.
+
+```{r}
+
+```
+Now use the dplyr verbs to do each of the following tasks:
+
+1. Create a new data frame from just the columns Sampling.Unit.Name, ndays, and bin.  Name it whatever you want. Do it twice, first without piping, and the second time with piping.
+
+```{r}
+
+```
+
+2. Determine how many unique species were detected during Round 1 of the study.
+
+```{r}
+
+```
+
+
+3. Determine the total number of camera trap nights (ndays) in each round of the study. (Hint: group_by). Do this twice, once without piping and once with.
+
+```{r}
+
+```
+

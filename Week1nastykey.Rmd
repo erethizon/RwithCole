@@ -1,0 +1,9 @@
+---
+title: "Week 1 - Tidying data"
+output: html_notebook
+---
+
+```{r}
+nasty.format<-read.csv("/Users/ebar/Dropbox/1Courses/ResearchGroup/Shared/Cole/SLU fellowship/GSWR/Datasets/nasty format.csv")
+```
+

@@ -1,0 +1,60 @@
+---
+title: "Week1 - GSWR examples"
+author: "Erika"
+date: "5/18/2020"
+output: html_document
+---
+
+This week, we're working on GSWR Chapter 2 on importing data and examining it with the dplyr package. I have provided three data sets, located in dropbox in Research Group -> Shared -> Cole.
+
+Set up the workspace. Clear the workspace and load the dplyr and ggplot packages.
+```{r}
+rm(list = ls())
+library(dplyr)
+library(ggplot2)
+
+```
+Navigate to the folder Cole and use the "read.csv" function to load the dataset called "Cam_Use_Date.csv". Name the dataframe "DF".
+
+```{r}
+path<- "/Users/ebar/Dropbox/1Courses/ResearchGroup/Shared/Cole/SLU fellowship/Data/"
+DF<-read.csv(paste0(path,"Cam_Use_Date.csv"))
+```
+How many rows of data?  How many variables?
+
+Which variables come in as integers? characters? factors? dates? numerics?
+
+Now load the same dataset again, but this time, use the following code: 
+```{r}
+
+DF1<- read.csv(paste0(path,"Cam_Use_Date.csv"), stringsAsFactors = T)
+```
+How did this change the structure of your data frame?
+
+Use the names(), head(), dim(), and str() functions to examine DF.  What do you learn from each?
+
+```{r}
+names(DF)
+```
+```{r}
+head(DF)
+```
+```{r}
+dim(DF)
+```
+```{r}
+str(DF)
+```
+Now load the dplyr package, if it isn't loaded already, and use it to run the glimpse() and tbl_df() functions.  What do these do?  How is their output similar to /different from the other functions you've used thus far?
+
+```{r}
+glimpse(DF)
+```
+```{r}
+tbl_df(DF)
+```
+
+
+
+
+
